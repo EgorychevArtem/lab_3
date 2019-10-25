@@ -3,8 +3,6 @@ import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
 public class App {
     private static String DELIMETR = "\"";
     private static String EMPTY = "\"";
@@ -26,10 +24,10 @@ public class App {
         JavaRDD<String> AirData = airportFile
                 .mapToPair(s->{
                    s = s.replaceAll(DELIMETR,EMPTY);
-                    AtomicInteger indexOfFirstComma = new AtomicInteger(s.indexOf(COMMA));
-                   s -> new Tuple2<>(
-                           Integer.valueOf(getSubstring(s,0, indexOfFirstComma.get())),
-                           getSubstring(s, indexOfFirstComma.getAndIncrement(),s.length());
+                   int indexOfFirstComma = s.indexOf(COMMA);
+                   return new Tuple2<>(
+                           Integer.valueOf(getSubstring(s,0,indexOfFirstComma)),
+                           //getSubstring(s,indexOfFirstComma++,s.length()),
                    );
                 });
     }
