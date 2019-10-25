@@ -5,8 +5,10 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.broadcast.Broadcast;
 import scala.Tuple2;
 
+import java.util.Map;
 import java.util.Optional;
 
 public class App {
@@ -49,6 +51,9 @@ public class App {
                     );
                 });
 
+
+        final Broadcast<Map<Integer,String>> airportsBroadcasted = sc.broadcast(AirData.collectAsMap());
+
         JavaPairRDD<Tuple2<Integer,Integer>, Serializabl> FlightData = flightFile
                 .mapToPair(s->{
                     String[] str = s.split(COMMA);
@@ -60,6 +65,6 @@ public class App {
                             new Serializabl(AiroportID,DestAiroportID,DelayTime,CancelledFlight));
                 });
 
-
+        
     }
 }
