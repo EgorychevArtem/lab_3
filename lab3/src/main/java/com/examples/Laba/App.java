@@ -56,6 +56,7 @@ public class App {
         final Broadcast<Map<Integer,String>> airportsBroadcasted = sc.broadcast(AirData.collectAsMap());
 
         JavaPairRDD<Tuple2<Integer,Integer>, Serializabl> FlightData = flightFile
+                .filter(s -> !s.contains("YEAR"))
                 .mapToPair(s->{
                     String[] str = s.split(COMMA);
                     int AiroportID = getParseInt(str[11]);
