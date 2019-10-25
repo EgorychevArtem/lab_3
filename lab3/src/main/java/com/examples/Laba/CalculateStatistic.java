@@ -50,5 +50,6 @@ public class CalculateStatistic implements Serializable {
     public static String PrintResult(CalculateStatistic stat){
         float DelayPercent = getCountPercent(stat.DelayFlights,stat.Flightscount);
         float CancelFlightsPercent = getCountPercent(stat.CancelFlights, stat.Flightscount);
+        return 
     }
 }
