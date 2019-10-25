@@ -14,14 +14,4 @@ public class Serializabl implements Serializable {
         this.Delay = Delay;
         this.CancelledFlight = CancelledFlight;
     }
-
-    @Override
-    public String toString() {
-        return "FlightSerializable{" +
-                "originAirportID=" + AiroportID +
-                ", destAirportID=" + DestAiroportID +
-                ", delayTime=" + Delay +
-                ", cancelled=" + CancelledFlight +
-                '}';
-    }
 }

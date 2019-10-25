@@ -34,6 +34,12 @@ public class CalculateStatistic implements Serializable {
         }
 
         return new CalculateStatistic(count,cancel,cancelDelay,max);
+    }
 
+    public static CalculateStatistic add(CalculateStatistic f, CalculateStatistic s){
+        return new CalculateStatistic(f.Flightscount + s.Flightscount,
+                                     f.CancelFlights + s.CancelFlights,
+                                      f.DelayFlights + s.DelayFlights,
+                                        f.maxDelay + s.maxDelay);
     }
 }
