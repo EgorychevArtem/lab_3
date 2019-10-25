@@ -65,6 +65,9 @@ public class App {
                             new Serializabl(AiroportID,DestAiroportID,DelayTime,CancelledFlight));
                 });
 
-        
+        JavaPairRDD<Tuple2<Integer,Integer>, Serializabl> FlightResult = FlightData
+                .combineByKey(
+                        
+                )
     }
 }
