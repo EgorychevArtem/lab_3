@@ -42,6 +42,7 @@ public class App {
         JavaRDD<String> airportFile = sc.textFile(AIRPORTINFO);
 
         JavaPairRDD<Integer,String> AirData = airportFile
+                .filter(s -> !s.contains("Code"))
                 .mapToPair(s->{
                     s = s.replaceAll(DELIMETR,EMPTY);
                     int indexOfFirstComma = s.indexOf(COMMA);
