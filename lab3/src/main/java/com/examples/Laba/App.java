@@ -7,6 +7,8 @@ import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
 
+import java.util.Optional;
+
 public class App {
     private static String DELIMETR = "\"";
     private static String EMPTY = "\"";
@@ -17,7 +19,18 @@ public class App {
     private static String getSubstring(String s, int first, int second){
         return s.substring(first,second);
     }
-    
+
+    private static int getParseInt(String str){
+        return Integer.parseInt(str);
+    }
+
+    private Optional<String> getOptionalDelayString(String str){
+        if(str.isEmpty() || Float.parseFloat(str) < 0.0f) {
+            return Optional.empty();
+        } else {
+            return Optional.of(str);
+        }
+    }
 
     public static void main(String[] args){
         SparkConf conf = new SparkConf().setAppName("lab_3");
@@ -39,8 +52,9 @@ public class App {
         JavaPairRDD<Tuple2<Integer,String>, Serializabl> FlightData = flightFile
                 .mapToPair(s->{
                     String[] str = s.split(COMMA);
-                    int AiroportID = Integer.parseInt(str[11]);
-                    int DestAiroportID = Integer.parseInt(str[14]);
+                    int AiroportID = getParseInt(str[11]);
+                    int DestAiroportID = getParseInt(str[14]);
+                    float DelayTime =
 
                 });
 
