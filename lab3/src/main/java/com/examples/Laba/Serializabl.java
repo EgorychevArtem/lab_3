@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Serializabl implements Serializable {
     int AiroportID, DestAiroportID;
-    float Delay, CancelledFlight);
+    float Delay, CancelledFlight;
 
     public Serializabl(int AiroportID, int DestAiroportID, float Delay, float CancelledFlight){
         this.AiroportID = AiroportID;
