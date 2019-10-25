@@ -12,4 +12,6 @@ public class CalculateStatistic implements Serializable {
         this.CancelFlights = CancelFlights;
         this.DelayFlights = DelayFlights;
     }
+
+    
 }
