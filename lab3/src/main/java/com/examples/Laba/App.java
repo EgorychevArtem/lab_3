@@ -18,6 +18,9 @@ public class App {
     private static String FLIGHTINFO = "664600583_T_ONTIME_sample.csv";
     private static String AIRPORTINFO = "L_AIRPORT_ID.csv";
     private static int AIROPORT_ID = 11;
+    private static int AIROPORT_CODE = 14;
+    private static int AIROPORT_DELAY = 18;
+    private static int CANCELLED = 19;
 
     private static String getSubstring(String s, int first, int second){
         return s.substring(first,second);
@@ -61,9 +64,9 @@ public class App {
                 .mapToPair(s->{
                     String[] str = s.split(COMMA);
                     int AiroportID = getParseInt(str[AIROPORT_ID]);
-                    int DestAiroportID = getParseInt(str[14]);
-                    float DelayTime = getOptionalDelayString(str[18]);
-                    float CancelledFlight = Float.parseFloat(str[19]);
+                    int DestAiroportID = getParseInt(str[AIROPORT_CODE]);
+                    float DelayTime = getOptionalDelayString(str[AIROPORT_DELAY]);
+                    float CancelledFlight = Float.parseFloat(str[CANCELLED]);
                     return new Tuple2<>(new Tuple2<>(AiroportID,DestAiroportID),
                             new Serializabl(AiroportID,DestAiroportID,DelayTime,CancelledFlight));
                 });
