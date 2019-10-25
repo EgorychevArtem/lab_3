@@ -81,6 +81,8 @@ public class App {
                         a -> new Tuple2<>(a._1(), CalculateStatistic.PrintResult(a._2()))
                 );
 
+        
+
 
 
 
