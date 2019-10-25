@@ -87,30 +87,7 @@ public class App {
                     Tuple2<Integer, Integer> key = a._1();
                     String value = a._2();
 
-                    return "from: " + AiroportDestID.get(key._1()) + "to: " 
-                }
-        )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                    return "from: " + AiroportDestID.get(key._1()) + "to: " + AiroportDestID.get(key._2());
+                });
     }
 }
