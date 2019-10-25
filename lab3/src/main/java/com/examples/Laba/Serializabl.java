@@ -1,4 +1,7 @@
 package com.examples.Laba;
 
-public class Serializabl {
+import java.io.Serializable;
+
+public class Serializabl implements Serializable {
+
 }
