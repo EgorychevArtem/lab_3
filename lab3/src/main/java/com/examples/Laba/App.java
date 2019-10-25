@@ -68,7 +68,7 @@ public class App {
         JavaPairRDD<Tuple2<Integer,Integer>, Serializabl> FlightResult = FlightData
                 .combineByKey(
                         p-> new CalculateStatistic(1,
-                                p.)
+                                p.CancelledFlight)
                 );
 
 
