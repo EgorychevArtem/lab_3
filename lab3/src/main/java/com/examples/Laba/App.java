@@ -49,7 +49,7 @@ public class App {
                     );
                 });
 
-        JavaPairRDD<Tuple2<Integer,String>, Serializabl> FlightData = flightFile
+        JavaPairRDD<Tuple2<Integer,Integer>, Serializabl> FlightData = flightFile
                 .mapToPair(s->{
                     String[] str = s.split(COMMA);
                     int AiroportID = getParseInt(str[11]);
