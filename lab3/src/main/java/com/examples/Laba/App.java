@@ -24,11 +24,11 @@ public class App {
         return Integer.parseInt(str);
     }
 
-    private Optional<String> getOptionalDelayString(String str){
-        if(str.isEmpty() || Float.parseFloat(str) < 0.0f) {
-            return Optional.empty();
+    private static float getOptionalDelayString(String str){
+        if(str.isEmpty()) {
+            return 0.0f;
         } else {
-            return Optional.of(str);
+            return Float.parseFloat(str);
         }
     }
 
@@ -54,8 +54,10 @@ public class App {
                     String[] str = s.split(COMMA);
                     int AiroportID = getParseInt(str[11]);
                     int DestAiroportID = getParseInt(str[14]);
-                    float DelayTime =
-
+                    float DelayTime = getOptionalDelayString(str[18]);
+                    float CancelledFlight = Float.parseFloat(str[19]);
+                    return new Tuple2<>(new Tuple2<>(AiroportID,DestAiroportID),
+                            new Serializabl(AiroportID,DestAiroportID,DelayTime,CancelledFlight));
                 });
 
     }
