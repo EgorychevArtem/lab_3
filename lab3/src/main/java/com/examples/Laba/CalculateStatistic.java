@@ -43,5 +43,12 @@ public class CalculateStatistic implements Serializable {
                                         f.maxDelay + s.maxDelay);
     }
 
-    
+    public static float getCountPercent(float first, float second){
+        return first / second * 100.0f;
+    }
+
+    public static String PrintResult(CalculateStatistic stat){
+        float DelayPercent = getCountPercent(stat.DelayFlights,stat.Flightscount);
+        float CancelFlightsPercent = getCountPercent(stat.CancelFlights, stat.Flightscount);
+    }
 }
