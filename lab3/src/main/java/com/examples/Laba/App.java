@@ -25,14 +25,13 @@ public class App {
         JavaRDD<String> flightsFile = sc.textFile(FLIGHTINFO);
         JavaRDD<String> airportFile = sc.textFile(AIRPORTINFO);
 
-        JavaPairRDD<String> AirData = airportFile
+        JavaPairRDD<Integer,String> AirData = airportFile
                 .mapToPair(s->{
                     s = s.replaceAll(DELIMETR,EMPTY);
                     int indexOfFirstComma = s.indexOf(COMMA);
                     return new Tuple2<>(
                             Integer.valueOf(getSubstring(s,0,indexOfFirstComma)),
-                            //getSubstring(s,indexOfFirstComma++,s.length()),
-                            s.substring(indexOfFirstComma+1,s.length())
+                            getSubstring(s,indexOfFirstComma++,s.length())
                     );
                 });
 
