@@ -26,8 +26,9 @@ public class App {
                    s = s.replaceAll(DELIMETR,EMPTY);
                    int indexOfFirstComma = s.indexOf(COMMA);
                    return new Tuple2<>(
-                           //Integer.valueOf(getSubstring(s,0,indexOfFirstComma)),
+                           Integer.valueOf(getSubstring(s,0,indexOfFirstComma)),
                            //getSubstring(s,indexOfFirstComma++,s.length()),
+                           s.substring(indexOfFirstComma+1,s.length())
                    );
                 });
     }
