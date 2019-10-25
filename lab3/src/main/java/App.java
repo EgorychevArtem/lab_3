@@ -1,6 +1,7 @@
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import scala.Tuple1;
 
 public class App {
     private static String DELIMETR = "\"";
@@ -15,7 +16,9 @@ public class App {
         JavaRDD<String> AirData = airportFile
                 .mapToPair(s->{
                    s= s.replaceAll(DELIMETR,EMPTY);
-                   
+                   s -> new Tuple1<>(
+                           Integer.valueOf()
+                   )
                 });
     }
 }
