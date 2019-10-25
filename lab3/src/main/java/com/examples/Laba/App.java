@@ -65,13 +65,18 @@ public class App {
                             new Serializabl(AiroportID,DestAiroportID,DelayTime,CancelledFlight));
                 });
 
-        JavaPairRDD<Tuple2<Integer,Integer>, Serializabl> FlightResult = FlightData
+        JavaPairRDD<Tuple2<Integer,Integer>, String> FlightResult = FlightData
                 .combineByKey(
-                        p-> new CalculateStatistic(1,
+                        p -> new CalculateStatistic(1,
                                 p.CancelledFlight == 1.0f ? 1:0,
                                 p.Delay > 0.0f ? 1:0,
                                 p.Delay),
-                        
+                        (CalculateStatistic,p) -> CalculateStatistic.AddNewValue(
+                                CalculateStatistic,
+                                p.CancelledFlight == 1.0f,
+                                p.Delay > 0.0f,
+                                p.Delay),
+                        )
                 );
 
 
