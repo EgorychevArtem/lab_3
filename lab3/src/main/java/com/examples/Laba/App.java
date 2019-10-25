@@ -13,7 +13,7 @@ import java.util.Optional;
 
 public class App {
     private static String DELIMETR = "\"";
-    private static String EMPTY = "\"";
+    private static String EMPTY = "";
     private static String COMMA = ",";
     private static String FLIGHTINFO = "664600583_T_ONTIME_sample.csv";
     private static String AIRPORTINFO = "L_AIRPORT_ID.csv";
