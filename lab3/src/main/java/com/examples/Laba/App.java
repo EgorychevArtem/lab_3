@@ -91,6 +91,6 @@ public class App {
 
                     return "from: " + AiroportDestID.get(key._1()) + "to: " + AiroportDestID.get(key._2());
                 });
-        result.saveAsTextFile("hdfs://localhost:9000/user/");
+        result.saveAsTextFile("hdfs://localhost:9000/user/artem/output");
     }
 }
