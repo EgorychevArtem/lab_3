@@ -42,4 +42,6 @@ public class CalculateStatistic implements Serializable {
                                       f.DelayFlights + s.DelayFlights,
                                         f.maxDelay + s.maxDelay);
     }
+
+    
 }

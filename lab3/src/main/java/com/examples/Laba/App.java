@@ -76,7 +76,9 @@ public class App {
                                 p.CancelledFlight == 1.0f,
                                 p.Delay > 0.0f,
                                 p.Delay),
-                        )
+                        CalculateStatistic::add)
+                .mapToPair(
+                        a -> new Tuple2<>(a._1(), CalculateStatistic.PrintResult(a._2()))
                 );
 
 
