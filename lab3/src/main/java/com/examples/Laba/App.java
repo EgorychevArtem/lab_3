@@ -17,12 +17,13 @@ public class App {
     private static String getSubstring(String s, int first, int second){
         return s.substring(first,second);
     }
+    
 
     public static void main(String[] args){
         SparkConf conf = new SparkConf().setAppName("lab_3");
         JavaSparkContext sc = new JavaSparkContext(conf);
 
-        JavaRDD<String> flightsFile = sc.textFile(FLIGHTINFO);
+        JavaRDD<String> flightFile = sc.textFile(FLIGHTINFO);
         JavaRDD<String> airportFile = sc.textFile(AIRPORTINFO);
 
         JavaPairRDD<Integer,String> AirData = airportFile
@@ -33,6 +34,14 @@ public class App {
                             Integer.valueOf(getSubstring(s,0,indexOfFirstComma)),
                             getSubstring(s,indexOfFirstComma++,s.length())
                     );
+                });
+
+        JavaPairRDD<Tuple2<Integer,String>, Serializabl> FlightData = flightFile
+                .mapToPair(s->{
+                    String[] str = s.split(COMMA);
+                    int AiroportID = Integer.parseInt(str[11]);
+                    int DestAiroportID = Integer.parseInt(str[14]);
+
                 });
 
     }
