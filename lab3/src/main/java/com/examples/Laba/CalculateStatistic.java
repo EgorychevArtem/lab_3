@@ -1,4 +1,6 @@
 package com.examples.Laba;
 
-public class CalculateStatistic implements  {
+import java.io.Serializable;
+
+public class CalculateStatistic implements Serializable {
 }
