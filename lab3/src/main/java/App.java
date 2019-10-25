@@ -17,7 +17,7 @@ public class App {
                 .mapToPair(s->{
                    s= s.replaceAll(DELIMETR,EMPTY);
                    s -> new Tuple1<>(
-                           Integer.valueOf()
+                           Integer.valueOf(s)
                    )
                 });
     }
