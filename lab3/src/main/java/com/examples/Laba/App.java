@@ -81,7 +81,15 @@ public class App {
                         a -> new Tuple2<>(a._1(), CalculateStatistic.PrintResult(a._2()))
                 );
 
-        
+        JavaRDD<String> result = FlightResult.map(
+                a -> {
+                    Map<Integer, String> AiroportDestID = airportsBroadcasted.value();
+                    Tuple2<Integer, Integer> key = a._1();
+                    String value = a._2();
+
+                    return "from: " + AiroportDestID.get(key._1()) + "to: " 
+                }
+        )
 
 
 
