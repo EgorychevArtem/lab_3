@@ -17,6 +17,7 @@ public class App {
     private static String COMMA = ",";
     private static String FLIGHTINFO = "664600583_T_ONTIME_sample.csv";
     private static String AIRPORTINFO = "L_AIRPORT_ID.csv";
+    private static int AIROPORT_ID = 11;
 
     private static String getSubstring(String s, int first, int second){
         return s.substring(first,second);
@@ -59,7 +60,7 @@ public class App {
                 .filter(s -> !s.contains("YEAR"))
                 .mapToPair(s->{
                     String[] str = s.split(COMMA);
-                    int AiroportID = getParseInt(str[11]);
+                    int AiroportID = getParseInt(str[AIROPORT_ID]);
                     int DestAiroportID = getParseInt(str[14]);
                     float DelayTime = getOptionalDelayString(str[18]);
                     float CancelledFlight = Float.parseFloat(str[19]);
