@@ -2,6 +2,7 @@ package com.examples.Laba;
 
 
 import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
@@ -24,7 +25,7 @@ public class App {
         JavaRDD<String> flightsFile = sc.textFile(FLIGHTINFO);
         JavaRDD<String> airportFile = sc.textFile(AIRPORTINFO);
 
-        JavaRDD<String> AirData = airportFile
+        JavaPairRDD<String> AirData = airportFile
                 .mapToPair(s->{
                     s = s.replaceAll(DELIMETR,EMPTY);
                     int indexOfFirstComma = s.indexOf(COMMA);
@@ -34,5 +35,6 @@ public class App {
                             s.substring(indexOfFirstComma+1,s.length())
                     );
                 });
+
     }
 }
