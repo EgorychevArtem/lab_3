@@ -48,7 +48,7 @@ public class App {
                     int indexOfFirstComma = s.indexOf(COMMA);
                     return new Tuple2<>(
                             Integer.valueOf(getSubstring(s,0,indexOfFirstComma)),
-                            getSubstring(s,indexOfFirstComma++,s.length())
+                            getSubstring(s,indexOfFirstComma + 1,s.length())
                     );
                 });
 
