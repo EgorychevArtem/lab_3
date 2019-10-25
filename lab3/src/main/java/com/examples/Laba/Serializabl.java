@@ -6,6 +6,8 @@ public class Serializabl implements Serializable {
     int AiroportID, DestAiroportID;
     float Delay, CancelledFlight;
 
+    public Serializabl() {}
+
     public Serializabl(int AiroportID, int DestAiroportID, float Delay, float CancelledFlight){
         this.AiroportID = AiroportID;
         this.DestAiroportID = DestAiroportID;
@@ -13,5 +15,4 @@ public class Serializabl implements Serializable {
         this.CancelledFlight = CancelledFlight;
     }
 
-    
 }
