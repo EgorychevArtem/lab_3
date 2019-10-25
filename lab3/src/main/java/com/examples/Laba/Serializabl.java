@@ -12,4 +12,6 @@ public class Serializabl implements Serializable {
         this.Delay = Delay;
         this.CancelledFlight = CancelledFlight;
     }
+
+    
 }

@@ -69,7 +69,9 @@ public class App {
                 .combineByKey(
                         p-> new CalculateStatistic(1,
                                 p.CancelledFlight == 1.0f ? 1:0,
-                                p.)
+                                p.Delay > 0.0f ? 1:0,
+                                p.Delay),
+                        
                 );
 
 
