@@ -59,7 +59,7 @@ public class App {
 
         final Broadcast<Map<Integer,String>> airportsBroadcasted = sc.broadcast(AirData.collectAsMap());
 
-        JavaPairRDD<Tuple2<Integer,Integer>, Serializabl> FlightData = flightFile
+        JavaPairRDD<Tuple2<Integer,Integer>, FlightData> FlightData = flightFile
                 .filter(s -> !s.contains("YEAR"))
                 .mapToPair(s->{
                     String[] str = s.split(COMMA);
@@ -68,7 +68,7 @@ public class App {
                     float DelayTime = getDelayString(str[AIROPORT_DELAY]);
                     float CancelledFlight = Float.parseFloat(str[CANCELLED]);
                     return new Tuple2<>(new Tuple2<>(AiroportID,DestAiroportID),
-                            new Serializabl(AiroportID,DestAiroportID,DelayTime,CancelledFlight));
+                            new FlightData(AiroportID,DestAiroportID,DelayTime,CancelledFlight));
                 });
 
         JavaPairRDD<Tuple2<Integer,Integer>, String> FlightResult = FlightData
