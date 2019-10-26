@@ -14,7 +14,7 @@ public class CalculateStatistic implements Serializable {
     }
 
     public static CalculateStatistic AddNewValue(CalculateStatistic stat, boolean isCancel, boolean isDelay, float delay){
-        int count = stat.Flightscount + 1;
+      /*  int count = stat.Flightscount + 1;
         int cancel,cancelDelay;
         float max;
         if (isCancel){
@@ -33,7 +33,11 @@ public class CalculateStatistic implements Serializable {
              max = stat.maxDelay;
         }
 
-        return new CalculateStatistic(count,cancel,cancelDelay,max);
+        return new CalculateStatistic(count,cancel,cancelDelay,max);*/
+      return new CalculateStatistic(stat.Flightscount + 1,
+                                    isCancel ? stat.CancelFlights + 1 : stat.CancelFlights,
+                                    isDelay ? stat.DelayFlights + 1 : stat.DelayFlights,
+                                    delay > stat.maxDelay ? delay : stat.maxDelay );
     }
 
     public static CalculateStatistic add(CalculateStatistic f, CalculateStatistic s){
