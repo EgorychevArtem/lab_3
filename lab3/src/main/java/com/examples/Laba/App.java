@@ -30,7 +30,7 @@ public class App {
         return Integer.parseInt(str);
     }
 
-    private static float getOptionalDelayString(String str){
+    private static float getDelayString(String str){
         if(str.isEmpty()) {
             return 0.0f;
         } else {
@@ -65,7 +65,7 @@ public class App {
                     String[] str = s.split(COMMA);
                     int AiroportID = getParseInt(str[AIROPORT_ID]);
                     int DestAiroportID = getParseInt(str[AIROPORT_CODE]);
-                    float DelayTime = getOptionalDelayString(str[AIROPORT_DELAY]);
+                    float DelayTime = getDelayString(str[AIROPORT_DELAY]);
                     float CancelledFlight = Float.parseFloat(str[CANCELLED]);
                     return new Tuple2<>(new Tuple2<>(AiroportID,DestAiroportID),
                             new Serializabl(AiroportID,DestAiroportID,DelayTime,CancelledFlight));
