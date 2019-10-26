@@ -15,4 +15,3 @@ public class FlightData implements Serializable {
         this.CancelledFlight = CancelledFlight;
     }
 }
-
